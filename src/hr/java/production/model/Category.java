@@ -1,19 +1,29 @@
 package hr.java.production.model;
 
-public class Category {
+import hr.java.production.entity.NamedEntity;
 
-    private String name;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+public class Category extends NamedEntity {
     private String description;
+    public Category(){
+        super();
+    }
 
     public Category(String name, String description) {
-        this.name = name;
+        super(name);
         this.description = description;
     }
 
     public String getName() {
-        return name;
+        return super.getName();
     }
-
+    @Override
+    public String toString() {
+        return super.getName();
+    }
     public String getDescription() {
         return description;
     }
@@ -23,6 +33,9 @@ public class Category {
     }
 
     public void setName(String name) {
-        this.name = name;
+        super.setName(name);
+    }
+    public static Category create(Map<String, Object> data){
+        return BaseModel.create(Category.class, data);
     }
 }

@@ -1,12 +1,17 @@
 package hr.java.production.model;
 
-public class Address {
+import java.util.Map;
+
+public class Address extends BaseModel {
 
     private String street;
     private String houseNumber;
     private String city;
     private String postalCode;
-
+    public static Address create(Map<String, Object> data){
+        return BaseModel.create(Address.class, data);
+    }
+    public Address() {}
     public Address(String street, String houseNumber, String city, String postalCode) {
         this.street = street;
         this.houseNumber = houseNumber;
